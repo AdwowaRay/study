@@ -31,8 +31,12 @@ use App\Http\Controllers\PostController;
 // create a controller to go get info from the database
 // return that info
 
-Route::apiResource('posts', 'PostController');
+Route::prefix('v1')->group(function () {
+    Route::apiResource('posts', 'PostController');
+});
 
+// shortform command
+// php artisan make:model Dog --migration --controller --api
 
 //Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //    return $request->user();
